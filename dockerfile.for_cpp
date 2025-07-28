@@ -1,0 +1,13 @@
+FROM ubuntu:noble
+
+# Install required applications
+RUN apt update -y && apt upgrade -y && apt install -y gcc g++
+
+# Create user
+RUN useradd -ms /bin/bash user
+
+# Switch to user
+USER user
+
+# Set the workdir for the image
+WORKDIR /home/user/app
